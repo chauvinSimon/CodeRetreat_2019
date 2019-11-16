@@ -6,6 +6,20 @@ struct Coords {
   int _y;
 };
 
+bool shouldBeRemoved(int n) {
+  if (n < 2 /*first rule*/ || n > 3 /*second rule*/) {
+    return true;
+  }
+  return false; /*third rule*/
+}
+
+bool shouldBeCreated(int n) {
+  if (n == 3 /*fourth rule*/) {
+    return true;
+  }
+  return false;
+}
+
 int boolToInt(bool x) { return x ? 1 : 0; }
 
 class Grid {
@@ -39,6 +53,8 @@ public:
     }
     return total;
   }
+
+  void update() { Grid tempGrid; }
 
 private:
   std::map<int, std::set<int>> _cells;
