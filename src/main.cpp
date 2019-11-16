@@ -7,9 +7,9 @@
 #include <thread>
 
 int main(int argc, char **argv) {
-  int nbSteps(160);
-  int sleepTimeStepMs(100);
-  int halfSizeDisplay(25);
+  int nbSteps(16);
+  int sleepTimeStepMs(300);
+  int halfSizeDisplay(5);
 
   Grid grid;
   // choose shape via cmd-args

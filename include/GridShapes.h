@@ -25,13 +25,15 @@ void emptySquare(Grid &grid) {
 
 void basicFour(Grid &grid) {
   /*
-    A . . . . . .
-    A . . . . . .
-    A . . . A . .
-    A . . . A . .
-    A A A A A A .
-    . . . . A . .
-    . . . . A . .
+    . . . . . . . . .
+    . . A . . . . . .
+    . . A . . . . . .
+    . . A . . . A . .
+    . . A . . . A . .
+    . . A A A A A A .
+    . . . . . . A . .
+    . . . . . . A . .
+    . . . . . . . . .
   */
   for (int row = 3; row > -2; row--) {
     grid.add({1, row});
