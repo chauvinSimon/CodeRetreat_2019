@@ -65,3 +65,19 @@ TEST_CASE("Testing Fourth Rule") {
     CHECK(shouldBeCreated(questionAnswer.first) == questionAnswer.second);
   }
 };
+
+TEST_CASE("Testing Update") {
+  Grid grid;
+  CHECK(grid.isEmpty());
+  grid.add({-1, -1});
+  grid.add({-1, 0});
+  grid.add({-1, 1});
+  grid.add({1, -1});
+  grid.add({1, 0});
+  grid.add({1, 1});
+  grid.add({0, -1});
+  grid.add({0, 1});
+
+  grid.update();
+  
+};
