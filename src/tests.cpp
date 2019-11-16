@@ -25,7 +25,7 @@ TEST_CASE("Testing Is cell in grid") {
   CHECK(!grid.contains({0, -1}));
 }
 
-TEST_CASE("Testing Return number of neighbours") {
+TEST_CASE("Testing Return number of direct neighbours") {
   Grid grid;
   CHECK(grid.isEmpty());
   grid.add({-1, -1});
@@ -66,7 +66,7 @@ TEST_CASE("Testing Fourth Rule") {
   }
 };
 
-TEST_CASE("Testing Update") {
+TEST_CASE("Testing Print 3*3 square with empty centre") {
   Grid grid;
   CHECK(grid.isEmpty());
   grid.add({-1, -1});
@@ -77,7 +77,25 @@ TEST_CASE("Testing Update") {
   grid.add({1, 1});
   grid.add({0, -1});
   grid.add({0, 1});
+  std::string strTable = grid.print(1);
+  CHECK(strTable == " A A A\n A . A\n A A A\n");
+};
 
+TEST_CASE("Testing update and Print 3*3 square with empty centre") {
+  Grid grid;
+  CHECK(grid.isEmpty());
+  grid.add({-1, -1});
+  grid.add({-1, 0});
+  grid.add({-1, 1});
+  grid.add({1, -1});
+  grid.add({1, 0});
+  grid.add({1, 1});
+  grid.add({0, -1});
+  grid.add({0, 1});
   grid.update();
-  
+  std::string strTable = grid.print(1);
+  CHECK(strTable == " A . A\n . . .\n A . A\n");
+  grid.update();
+  strTable = grid.print(1);
+  CHECK(strTable == " A A A\n A . A\n A A A\n");
 };

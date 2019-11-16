@@ -1,3 +1,6 @@
+#ifndef _GRID_
+#define _GRID_
+
 #include <map>
 #include <set>
 #include <vector>
@@ -5,7 +8,7 @@
 struct Coords {
   int _x;
   int _y;
-  std::vector<Coords> neighbours() {
+  std::vector<Coords> directNeighbours() {
     return {{_x - 1, _y - 1}, {_x - 1, _y},    {_x - 1, _y + 1},
             {_x, _y},         {_x, _y},        {_x + 1, _y - 1},
             {_x + 1, _y},     {_x + 1, _y + 1}};
@@ -32,7 +35,6 @@ class Grid {
 public:
   bool isEmpty() { return _cells.empty(); };
   void add(Coords cell) { _cells[cell._x].insert(cell._y); };
-  void setHalfSize(int halfSize) { _halfSize = halfSize; };
 
   bool contains(Coords cell) {
     auto searchRow = _cells.find(cell._x);
@@ -72,7 +74,7 @@ public:
         if (!shouldBeRemoved(nbNeighbours(centreCoords))) {
           tempGrid.add(centreCoords);
         }
-        for (const Coords &neighbour : centreCoords.neighbours()) {
+        for (const Coords &neighbour : centreCoords.directNeighbours()) {
           if (!contains(neighbour)) {
             // ... 2/2 if void cell should be created
             if (shouldBeCreated(nbNeighbours(neighbour))) {
@@ -85,10 +87,10 @@ public:
     _cells = tempGrid._cells;
   }
 
-  std::string print() {
+  std::string print(int halfSizeDisplay = 2) {
     std::string strTable;
-    for (int row = -_halfSize; row < _halfSize + 1; row++) {
-      for (int col = -_halfSize; col < _halfSize + 1; col++) {
+    for (int row = -halfSizeDisplay; row < halfSizeDisplay + 1; row++) {
+      for (int col = -halfSizeDisplay; col < halfSizeDisplay + 1; col++) {
         strTable += " ";
         strTable += contains({col, row}) ? "A" : ".";
       }
@@ -99,5 +101,6 @@ public:
 
 private:
   std::map<int, std::set<int>> _cells;
-  int _halfSize;
 };
+
+#endif // _GRID_
