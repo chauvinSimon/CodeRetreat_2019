@@ -2,7 +2,7 @@
 
 ## Motivation
 
-I was taking part to one of the `154` events taking place worldwide, the same day, for the **`2019 Global Day of CodeRetreat`**.
+I was taking part to one of the `154` events taking place worldwide, the same day, for the [**`2019 Global Day of CodeRetreat`**](https://www.coderetreat.org/).
 
 As stated:
 
@@ -33,7 +33,7 @@ During one time-step, the following **evolution rules** apply:
 
 | ![Example of **life evolution in a grid of cells** - `A`=`alive` and `.`=`dead`.](media/big_s_1.gif "Example of **life evolution in a grid of cells** - `A`=`alive cell` and `.`=`dead cell`")  |
 |:--:|
-| *Example of **life evolution in a grid of cells**: `A`=`alive cell` and `.`=`dead cell`.* |
+| *Example of **life evolution in a grid of cells**: `A`=`alive cell` and `.`=`dead cell`. The initial `S`-shape distribution converges in `~150` steps.* |
 
 ## Get Started
 
@@ -56,7 +56,8 @@ cmake ..
 To **`build` + `run`** the **tests** just run:
 
 ```bash
-make && ./tests
+make
+./tests
 ```
 
 To **`build` + `run`** the **main executable** just run:
